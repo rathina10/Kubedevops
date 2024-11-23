@@ -1,6 +1,4 @@
 FROM  centos:latest
-USER rathina10
-RUN useradd -m rathina10
 RUN yum install -y httpd \
  zip\
  unzip
