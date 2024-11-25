@@ -4,11 +4,14 @@ FROM almalinux:8
 RUN yum install -y httpd zip unzip && yum clean all
 
 # Download the zip file
-ADD https://www.free-css.com/free-css-templates/page296/little-fashion /var/www/html/
-RUN curl -o /var/www/html/little-fashion.zip https://www.free-css.com/free-css-templates/page296/little-fashion && \
-    unzip /var/www/html/little-fashion.zip -d /var/www/html/ && \
-    rm /var/www/html/little-fashion.zip
+ADD little-fashion.zip /var/www/html/
+RUN cd /var/www/html/ && unzip little-fashion.zip && rm -f little-fashion.zip
 
+RUN curl -fSL -o /var/www/html/little-fashion.zip https://www.free-css.com/free-css-templates/page296/little-fashion && \
+    cd /var/www/html/ && unzip little-fashion.zip && rm -f little-fashion.zip
+
+RUN for i in 1 2 3; do curl -fSL -o /var/www/html/little-fashion.zip https://www.free-css.com/free-css-templates/page296/little-fashion && break || sleep 5; done && \
+    cd /var/www/html/ && unzip little-fashion.zip && rm -f little-fashion.zip
 
 # Set the working directory
 WORKDIR /var/www/html/
