@@ -4,7 +4,7 @@ FROM almalinux:8
 RUN yum install -y httpd zip unzip && yum clean all
 
 # Download the zip file
-ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip \C:\Users\rajan\Downloads
+ADD https://www.free-css.com/free-css-templates/page296/little-fashion /var/www/html/
 
 # Set the working directory
 WORKDIR /var/www/html/
