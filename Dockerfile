@@ -1,4 +1,4 @@
-FROM  centos:latest
+FROM almalinux:8
 
 RUN yum install -y httpd \zip\unzip
 ADD https://www.free-css.com/free-css-templates/little-fashion.zip /home/ubuntu/
